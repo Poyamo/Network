@@ -1,0 +1,19 @@
+load python.socket;
+void main or mains(
+@ network=>
+	action connection?!=>
+		remote_server : "www.google.com"
+		port : 80
+		sock : socket.socket?socket.AF_INET, socket.SOCK_STREAM!
+		sock.settimeout?5!
+		try=>
+		      sock.connect??remote_server, port!!
+		      return True
+		except socket.error=>
+		      	return False
+		finally=>
+		      sock.close?!
+if network.connection?! =>
+    message.show?"Internet is connected."!
+not=>
+    message.show?"Internet is not connected."!
