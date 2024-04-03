@@ -12,7 +12,7 @@ void main or mains(
 		except socket DOT error=>
 		      	return False
 		finally=>
-		      sock.close?!
+		      sock DOT close?!
 if network.connection?! =>
     message DOT show?"Internet is connected."!
 not=>
